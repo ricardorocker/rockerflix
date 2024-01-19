@@ -23,8 +23,8 @@ function Home() {
   }, [movies]);
   return (
     <section>
-      {movies.map((movie) => {
-        return <Movie id={movie.id} title={movie.title} img={apiImg + movie.backdrop_path} />;
+      {movies && movies.map((movie) => {
+        return <Movie id={movie.id} title={movie.title} img={apiImg + movie.backdrop_path} movie={movie} />;
       })}
     </section>
   );

@@ -21,4 +21,14 @@ img {
   border-radius: 0px 0px 10px 10px;
   color: #fff;
   background-color: rgb(42, 97, 248);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.view-movie:hover {
+  opacity: 70%;
+  cursor: pointer;
 }

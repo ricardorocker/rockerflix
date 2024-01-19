@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 function Movies() {
-  return <div><h1>Movies</h1></div>;
+  const { query } = useParams();
+
+  useEffect(() => {
+    console.log("01", query);
+    // console.log("02", JSON.parse(movie));
+  }, []);
+  return (
+    <div>
+      <h1>Movie: {query && JSON.parse(query)}</h1>
+    </div>
+  );
 }
-export default Movies();
+export default Movies;
