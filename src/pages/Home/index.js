@@ -17,7 +17,7 @@ function Home() {
         },
       });
 
-      setMovies(response.data.results);
+      setMovies(response.data.results.slice(0, 10));
     }
 
     loadMovies();
@@ -31,7 +31,6 @@ function Home() {
               id={movie.id}
               title={movie.title}
               img={apiImg + movie.backdrop_path}
-              movie={movie}
             />
           );
         })}
