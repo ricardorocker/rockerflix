@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import Movie from "../../components/Movie";
 import "./index.css";
+import api from "../../services/api";
 
 function Home() {
   const [movies, setMovies] = useState();
   const apiImg = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    function loadMovie() {
-      let url =
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=28fc232cc001c31e8a031f419d0a14ca&language=pt-BR";
+    async function loadMovies() {
+      const response = await api.get("/movie/now_playing", {
+        params: {
+          api_key: "6666729db4256cc76fad9e033bcf89ab",
+          language: "pt-BR",
+          page: 1,
+        },
+      });
 
-      fetch(url)
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(movies);
-          setMovies(json.results);
-        });
+      setMovies(response.data.results);
     }
 
-    loadMovie();
+    loadMovies();
   }, [movies]);
   return (
     <section>
