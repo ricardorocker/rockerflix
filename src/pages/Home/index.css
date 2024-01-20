@@ -5,3 +5,10 @@ section {
     justify-content: center;
     margin: 10px 0;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

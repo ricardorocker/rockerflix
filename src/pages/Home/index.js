@@ -5,6 +5,7 @@ import api from "../../services/api";
 
 function Home() {
   const [movies, setMovies] = useState();
+  const [loading, setLoading] = useState(true);
   const apiImg = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
@@ -18,10 +19,20 @@ function Home() {
       });
 
       setMovies(response.data.results.slice(0, 10));
+      setLoading(false);
     }
 
     loadMovies();
   }, [movies]);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <h3>Carregando filmes...</h3>
+      </div>
+    );
+  }
+
   return (
     <section>
       {movies &&
