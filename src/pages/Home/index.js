@@ -23,7 +23,7 @@ function Home() {
     }
 
     loadMovies();
-  }, [movies]);
+  }, []);
 
   if (loading) {
     return (
@@ -39,9 +39,10 @@ function Home() {
         movies.map((movie) => {
           return (
             <Movie
+              key={movie.id}
               id={movie.id}
               title={movie.title}
-              img={apiImg + movie.backdrop_path}
+              img={apiImg + movie.poster_path}
             />
           );
         })}
