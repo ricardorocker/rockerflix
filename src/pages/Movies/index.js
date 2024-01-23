@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
 
 import "./filme-info.css";
+import { toast } from "react-toastify";
 
 function Movies() {
   const { id } = useParams();
@@ -49,13 +50,13 @@ function Movies() {
     );
 
     if (hasMovie) {
-      alert("Esse filme já esta na lista");
+      toast.warn("Esse filme já esta na lista");
       return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@rockerflix", JSON.stringify(savedMovies));
-    alert("Filme salvo com sucesso!");
+    toast.success("Filme salvo com sucesso!");
   }
 
   if (loading) {
